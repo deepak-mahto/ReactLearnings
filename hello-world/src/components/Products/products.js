@@ -1,42 +1,7 @@
 import { useState } from "react";
 import ListItem from "./ListItems/ListItem";
 
-// const items = [
-//   {
-//     id: 1,
-//     discountedPrice: 340,
-//     price: 450,
-//     title: "Title of the Item 1",
-//     thumbnail: "placeholder.png",
-//   },
-//   {
-//     id: 2,
-//     discountedPrice: 320,
-//     price: 40,
-//     title: "Title of the Item 2",
-//     thumbnail: "placeholder.png",
-//   },
-//   {
-//     id: 3,
-//     discountedPrice: 340,
-//     price: 400,
-//     title: "Title of the Item 3",
-//     thumbnail: "placeholder.png",
-//   },
-//   {
-//     id: 3,
-//     discountedPrice: 380,
-//     price: 480,
-//     title: "Title of the Item 4",
-//     thumbnail: "placeholder.png",
-//   },
-// ];
-
 const Products = () => {
-  const [title, setTitle] = useState("");
-  const [price, setPrice] = useState(0);
-  const [discountedPrice, setDiscountedprice] = useState(0);
-  const [thumbnail, setThumbnil] = useState("");
   const [item, setItem] = useState({
     id: 0,
     discountedPrice: 340,
@@ -46,7 +11,6 @@ const Products = () => {
   });
 
   const handleTitle = (event) => {
-    setTitle(event.target.value);
     setItem({
       ...item,
       title: event.target.value,
@@ -54,35 +18,32 @@ const Products = () => {
   };
 
   const handlePrice = (event) => {
-    setPrice(event.target.value);
+    setItem({
+      ...item,
+      price: event.target.value,
+    });
   };
 
   const handleDiscountedprice = (event) => {
-    setDiscountedprice(event.target.value);
+    setItem({
+      ...item,
+      discountedPrice: event.target.value,
+    });
   };
 
   const handleThumbnail = (event) => {
-    setThumbnil(event.target.value);
+    setItem({
+      ...item,
+      thumbnail: event.target.value,
+    });
   };
 
   const submitForm = (event) => {
     event.preventDefault();
-    console.log({
-      title,
-      price,
-      discountedPrice,
-      thumbnail,
-    });
-    if (discountedPrice > price) {
+    if (item.discountedPrice > item.price) {
       alert("Discounted price cannot be greater than price.");
       return;
     }
-    setItem({
-      title,
-      price,
-      discountedPrice,
-      thumbnail,
-    });
   };
   return (
     <div className={"product-list"}>
@@ -95,7 +56,7 @@ const Products = () => {
               <input
                 type="text"
                 placeholder="Enter Title"
-                value={title}
+                value={item.title}
                 onChange={handleTitle}
                 required
               />
@@ -105,7 +66,7 @@ const Products = () => {
               <input
                 type="number"
                 placeholder="Enter Price"
-                value={price}
+                value={item.price}
                 onChange={handlePrice}
                 required
               />
@@ -115,7 +76,7 @@ const Products = () => {
               <input
                 type="number"
                 placeholder="Enter discountedPrice"
-                value={discountedPrice}
+                value={item.discountedPrice}
                 onChange={handleDiscountedprice}
                 required
               />
@@ -125,7 +86,7 @@ const Products = () => {
               <input
                 type="text"
                 placeholder="Enter thumbnail"
-                value={thumbnail}
+                value={item.thumbnail}
                 onChange={handleThumbnail}
                 required
               />
@@ -136,10 +97,6 @@ const Products = () => {
           </form>
         </div>
         <ListItem data={item}></ListItem>
-        {/* <ListItem data={items[0]}></ListItem>
-        <ListItem data={items[1]}></ListItem>
-        <ListItem data={items[2]}></ListItem>
-        <ListItem data={items[3]}></ListItem>  */}
       </div>
     </div>
   );
