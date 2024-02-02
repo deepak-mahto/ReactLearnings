@@ -47,6 +47,10 @@ const Products = () => {
 
   const handleTitle = (event) => {
     setTitle(event.target.value);
+    setItem({
+      ...item,
+      title: event.target.value,
+    });
   };
 
   const handlePrice = (event) => {
