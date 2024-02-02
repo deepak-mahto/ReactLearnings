@@ -10,31 +10,10 @@ const Products = () => {
     thumbnail: "placeholder.png",
   });
 
-  const handleTitle = (event) => {
+  const handleInput = (event) => {
     setItem({
       ...item,
-      title: event.target.value,
-    });
-  };
-
-  const handlePrice = (event) => {
-    setItem({
-      ...item,
-      price: event.target.value,
-    });
-  };
-
-  const handleDiscountedprice = (event) => {
-    setItem({
-      ...item,
-      discountedPrice: event.target.value,
-    });
-  };
-
-  const handleThumbnail = (event) => {
-    setItem({
-      ...item,
-      thumbnail: event.target.value,
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -54,40 +33,44 @@ const Products = () => {
             <div className={"input-field"}>
               <label htmlFor="title">Title</label>
               <input
+                name="title"
                 type="text"
                 placeholder="Enter Title"
                 value={item.title}
-                onChange={handleTitle}
+                onChange={handleInput}
                 required
               />
             </div>
             <div className={"input-field"}>
               <label htmlFor="price">Price</label>
               <input
+                name="price"
                 type="number"
                 placeholder="Enter Price"
                 value={item.price}
-                onChange={handlePrice}
+                onChange={handleInput}
                 required
               />
             </div>
             <div className={"input-field"}>
               <label htmlFor="discountedPrice">DiscountedPrice</label>
               <input
+                name="discountedPrice"
                 type="number"
                 placeholder="Enter discountedPrice"
                 value={item.discountedPrice}
-                onChange={handleDiscountedprice}
+                onChange={handleInput}
                 required
               />
             </div>
             <div className={"input-field"}>
               <label htmlFor="thumbnail">Thumbnail</label>
               <input
+                name="thumbnail"
                 type="text"
                 placeholder="Enter thumbnail"
                 value={item.thumbnail}
-                onChange={handleThumbnail}
+                onChange={handleInput}
                 required
               />
             </div>
