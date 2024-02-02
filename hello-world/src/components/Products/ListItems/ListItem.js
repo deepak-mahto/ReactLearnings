@@ -1,6 +1,21 @@
-import AddToCartIcon from "../../../assets/icons/add_cart.svg";
+// import AddToCartIcon from "../../../assets/icons/add_cart.svg";
+import { useState } from "react";
 
 const ListItem = ({ data }) => {
+  const [counter, setCounter] = useState(0);
+
+  const increaseByOne = () => {
+    setCounter(counter + 1);
+  };
+
+  const decreaseByOne = () => {
+    if (counter <= 0) {
+      return;
+    } else {
+      setCounter(counter - 1);
+    }
+  };
+
   return (
     <div className={"item-card"}>
       <img
@@ -19,10 +34,19 @@ const ListItem = ({ data }) => {
           <h3>{data.title}</h3>
         </div>
       </div>
-      <button className={"cart-add"}>
+      {/* <button className={"cart-add"}>
         <span>Add to cart</span>
         <img src={AddToCartIcon} alt="Cart Icon" />
-      </button>
+      </button> */}
+      <div className={"cart-addon"}>
+        <button onClick={decreaseByOne}>
+          <span>-</span>
+        </button>
+        <span className={"counter"}>{counter}</span>
+        <button onClick={increaseByOne}>
+          <span>+</span>
+        </button>
+      </div>
     </div>
   );
 };
