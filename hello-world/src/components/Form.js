@@ -3,12 +3,8 @@ const Form = (props) => {
     props.onChangeInput(e);
   };
 
-  const submitForm = (e) => {
-    props.onFormsubmission(e);
-  };
-
   return (
-    <form onSubmit={submitForm}>
+    <form onSubmit={props.onFormsubmission}>
       <h1>Item card details</h1>
       <div className={"input-field"}>
         <label htmlFor="title">Title</label>
