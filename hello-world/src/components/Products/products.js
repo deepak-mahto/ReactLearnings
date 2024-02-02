@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ListItem from "./ListItems/ListItem";
+import Form from "../Form";
 
 const Products = () => {
   const [item, setItem] = useState({
@@ -25,61 +26,18 @@ const Products = () => {
     }
   };
   return (
-    <div className={"product-list"}>
-      <div className={"product-wrapper"}>
-        <div className={"form"}>
-          <form onSubmit={submitForm}>
-            <h1>Item card details</h1>
-            <div className={"input-field"}>
-              <label htmlFor="title">Title</label>
-              <input
-                name="title"
-                type="text"
-                placeholder="Enter Title"
-                value={item.title}
-                onChange={handleInput}
-                required
-              />
-            </div>
-            <div className={"input-field"}>
-              <label htmlFor="price">Price</label>
-              <input
-                name="price"
-                type="number"
-                placeholder="Enter Price"
-                value={item.price}
-                onChange={handleInput}
-                required
-              />
-            </div>
-            <div className={"input-field"}>
-              <label htmlFor="discountedPrice">DiscountedPrice</label>
-              <input
-                name="discountedPrice"
-                type="number"
-                placeholder="Enter discountedPrice"
-                value={item.discountedPrice}
-                onChange={handleInput}
-                required
-              />
-            </div>
-            <div className={"input-field"}>
-              <label htmlFor="thumbnail">Thumbnail</label>
-              <input
-                name="thumbnail"
-                type="text"
-                placeholder="Enter thumbnail"
-                value={item.thumbnail}
-                onChange={handleInput}
-                required
-              />
-            </div>
-            <div className={"submit-wrap"}>
-              <button>Update</button>
-            </div>
-          </form>
+    <div className={"product-wrapper"}>
+      <div className={"form"}>
+        <Form
+          item={item}
+          onChangeInput={handleInput}
+          onFormsubmission={submitForm}
+        />
+      </div>
+      <div>
+        <div>
+          <ListItem data={item}></ListItem>
         </div>
-        <ListItem data={item}></ListItem>
       </div>
     </div>
   );
