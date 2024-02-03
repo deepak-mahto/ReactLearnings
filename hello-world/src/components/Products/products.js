@@ -1,8 +1,8 @@
 import { useState } from "react";
 import ListItem from "./ListItems/ListItem";
-import Form from "./Form";
+// import Form from "./Form";
 
-const Products = () => {
+/** const Products = () => {
   const [item, setItem] = useState({
     id: 0,
     discountedPrice: 340,
@@ -38,6 +38,52 @@ const Products = () => {
         <div>
           <ListItem data={item}></ListItem>
         </div>
+      </div>
+    </div>
+  );
+}; **/
+
+const Products = () => {
+  const [items, setItems] = useState([
+    {
+      id: 0,
+      title: "Title of the Item 1",
+      price: 450,
+      discountedPrice: 340,
+      thumbnail: "placeholder.png",
+    },
+    {
+      id: 1,
+      title: "Title of the Item 2",
+      price: 540,
+      discountedPrice: 440,
+      thumbnail: "placeholder.png",
+    },
+    {
+      id: 2,
+      title: "Title of the Item 3",
+      price: 520,
+      discountedPrice: 420,
+      thumbnail: "placeholder.png",
+    },
+    {
+      id: 3,
+      title: "Title of the Item 4",
+      price: 510,
+      discountedPrice: 410,
+      thumbnail: "placeholder.png",
+    },
+  ]);
+
+  return (
+    <div className={"product-list"}>
+      <div className={"product-list--wrapper"}>
+        {/* <ListItem data={items[0]}></ListItem>
+        <ListItem data={items[1]}></ListItem> */}
+        {items.map((item) => {
+          // console.log(item);
+          return <ListItem data={item} />;
+        })}
       </div>
     </div>
   );
