@@ -73,6 +73,13 @@ const Products = () => {
       discountedPrice: 410,
       thumbnail: "placeholder.png",
     },
+    {
+      id: 4,
+      title: "Title of the Item 5",
+      price: 410,
+      discountedPrice: 310,
+      thumbnail: "dummy.png",
+    },
   ]);
 
   return (
@@ -82,7 +89,7 @@ const Products = () => {
         <ListItem data={items[1]}></ListItem> */}
         {items.map((item) => {
           // console.log(item);
-          return <ListItem data={item} />;
+          return <ListItem key={item.id} data={item} />;
         })}
       </div>
     </div>
