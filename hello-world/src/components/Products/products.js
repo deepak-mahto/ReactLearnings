@@ -3,7 +3,7 @@ import ListItem from "./ListItems/ListItem";
 import axios from "axios";
 // import Form from "./Form";
 
-/** const Products = () => {
+/* const Products = () => {
   const [item, setItem] = useState({
     id: 0,
     discountedPrice: 340,
@@ -42,21 +42,21 @@ import axios from "axios";
       </div>
     </div>
   );
-}; **/
+}; */
 
 const Products = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    //   fetch(`https://react-learning-7c870-default-rtdb.firebaseio.com/items.json`)
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       console.log(data);
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    axios
+    /* fetch(`https://react-learning-7c870-default-rtdb.firebaseio.com/items.json`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      }); */
+    /* axios
       .get(
         `https://react-learning-7c870-default-rtdb.firebaseio.com/items.json`
       )
@@ -74,7 +74,26 @@ const Products = () => {
       })
       .catch((err) => {
         console.log(err);
-      });
+      }); */
+    async function fetchItems() {
+      try {
+        const response = await axios.get(
+          `https://react-learning-7c870-default-rtdb.firebaseio.com/items.json`
+        );
+        const data = response.data;
+        const transformData = data.map((item, index) => {
+          return {
+            ...item,
+            id: index,
+          };
+        });
+        setItems(transformData);
+      } catch (error) {
+        console.log(error);
+        alert("Some error occurred!")
+      }
+    }
+    fetchItems();
   }, []);
 
   return (
