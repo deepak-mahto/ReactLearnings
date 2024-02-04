@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ListItem from "./ListItems/ListItem";
+import axios from "axios";
 // import Form from "./Form";
 
 /** const Products = () => {
@@ -44,43 +45,37 @@ import ListItem from "./ListItems/ListItem";
 }; **/
 
 const Products = () => {
-  const [items, setItems] = useState([
-    {
-      id: 0,
-      title: "Title of the Item 1",
-      price: 450,
-      discountedPrice: 340,
-      thumbnail: "placeholder.png",
-    },
-    {
-      id: 1,
-      title: "Title of the Item 2",
-      price: 540,
-      discountedPrice: 440,
-      thumbnail: "placeholder.png",
-    },
-    {
-      id: 2,
-      title: "Title of the Item 3",
-      price: 520,
-      discountedPrice: 420,
-      thumbnail: "placeholder.png",
-    },
-    {
-      id: 3,
-      title: "Title of the Item 4",
-      price: 510,
-      discountedPrice: 410,
-      thumbnail: "placeholder.png",
-    },
-    {
-      id: 4,
-      title: "Title of the Item 5",
-      price: 410,
-      discountedPrice: 310,
-      thumbnail: "dummy.png",
-    },
-  ]);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    //   fetch(`https://react-learning-7c870-default-rtdb.firebaseio.com/items.json`)
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       console.log(data);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    axios
+      .get(
+        `https://react-learning-7c870-default-rtdb.firebaseio.com/items.json`
+      )
+      .then((res) => {
+        const data = res.data;
+        // console.log(data);
+        const transformData = data.map((item, index) => {
+          return {
+            ...item,
+            id: index,
+          };
+        });
+        setItems(transformData);
+        // console.log(transformData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className={"product-list"}>

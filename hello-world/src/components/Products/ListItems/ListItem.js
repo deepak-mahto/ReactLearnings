@@ -34,19 +34,22 @@ const ListItem = ({ data }) => {
           <h3>{data.title}</h3>
         </div>
       </div>
-      <button className={"cart-add"}>
-        <span>Add to cart</span>
-        <img src={AddToCartIcon} alt="Cart Icon" />
-      </button>
-      <div className={"cart-addon"}>
-        <button onClick={decreaseByOne}>
-          <span>-</span>
+      {counter <= 0 ? (
+        <button className={"cart-add"} onClick={increaseByOne}>
+          <span>Add to cart</span>
+          <img src={AddToCartIcon} alt="Cart Icon" />
         </button>
-        <span className={"counter"}>{counter}</span>
-        <button onClick={increaseByOne}>
-          <span>+</span>
-        </button>
-      </div>
+      ) : (
+        <div className={"cart-addon"}>
+          <button onClick={decreaseByOne}>
+            <span>-</span>
+          </button>
+          <span className={"counter"}>{counter}</span>
+          <button onClick={increaseByOne}>
+            <span>+</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 };
