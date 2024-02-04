@@ -1,7 +1,7 @@
 import AddToCartIcon from "../../../assets/icons/add_cart.svg";
 import { useState } from "react";
 
-const ListItem = ({ data }) => {
+const ListItem = ({ data, updateItemTitle }) => {
   const [counter, setCounter] = useState(0);
 
   const increaseByOne = () => {
@@ -34,6 +34,7 @@ const ListItem = ({ data }) => {
           <h3>{data.title}</h3>
         </div>
       </div>
+      <button onClick={() => updateItemTitle(data.id)}>Update the Title</button>
       {counter <= 0 ? (
         <button className={"cart-add"} onClick={increaseByOne}>
           <span>Add to cart</span>
