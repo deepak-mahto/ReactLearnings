@@ -1,7 +1,8 @@
 import { Fragment, useState } from "react";
 import Modal from "../UI/Modal";
+import CartItems from "./CartItems";
 
-const Cart = ({ count }) => {
+const Cart = ({ count, items }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleModal = () => {
@@ -37,40 +38,23 @@ const Cart = ({ count }) => {
             <h2>Checkout Modal</h2>
             <div className="checkout-modal_list">
               {count > 0 ? (
-                <div className="checkout-modal_list-item">
-                  <div className="img_wrap">
-                    <img
-                      src={"./assets/placeholder.png"}
-                      className="img-fluid"
-                      alt="placeholder"
-                    />
-                  </div>
-                  <div className="information">
-                    <div>
-                      <h4>Title of the product</h4>
-                      <div className="pricing">
-                        <span>2000</span>
-                        <small>
-                          <strike>2500</strike>
-                        </small>
-                      </div>
-                    </div>
-                    <div className="cart-addon cart-addon__modal">
-                      <button>-</button>
-                      <span className="counter">{0}</span>
-                      <button>+</button>
-                    </div>
-                  </div>
-                </div>
+                items.map((item) => {
+                  return <CartItems data={item} key={item.id} />;
+                })
               ) : (
                 <div className="empty-cart">Add Something!</div>
               )}
             </div>
-            {count && (
+            {count > 0 && (
               <div className="checkout-modal_footer">
                 <div className="totalAmount">
                   <h4>Total Amount: </h4>
-                  <h4>2000 INR</h4>
+                  <h4>
+                    {items.reduce((acc, curr) => {
+                      return (acc = curr.discountedPrice + curr.quantity);
+                    }, 0)}
+                    <span style={{ marginLeft: "4px" }}>INR</span>
+                  </h4>
                 </div>
                 <button>Order now!</button>
               </div>
