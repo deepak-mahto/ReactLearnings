@@ -31,7 +31,7 @@ const Products = () => {
     console.log(`Item with Id: ${itemId}`);
     try {
       let title = `Update title #Item-${itemId}`;
-      await axios.put(
+      await axios.patch(
         `https://react-learning-7c870-default-rtdb.firebaseio.com/items/${itemId}.json`,
         {
           title: title,
