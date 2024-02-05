@@ -6,11 +6,13 @@ const ListItem = ({ data, updateItemTitle }) => {
   const [counter, setCounter] = useState(0);
   const [showModal, setShowModal] = useState(false);
 
-  const increaseByOne = () => {
+  const increaseByOne = (event) => {
+    event.stopPropagation();
     setCounter(counter + 1);
   };
 
-  const decreaseByOne = () => {
+  const decreaseByOne = (event) => {
+    event.stopPropagation();
     if (counter <= 0) {
       return;
     } else {
@@ -41,9 +43,9 @@ const ListItem = ({ data, updateItemTitle }) => {
             <h3>{data.title}</h3>
           </div>
         </div>
-        <button onClick={() => updateItemTitle(data.id)}>
+        {/* <button onClick={() => updateItemTitle(data.id)}>
           Update the Title
-        </button>
+        </button> */}
         {counter <= 0 ? (
           <button className={"cart-add"} onClick={increaseByOne}>
             <span>Add to cart</span>
@@ -61,7 +63,48 @@ const ListItem = ({ data, updateItemTitle }) => {
           </div>
         )}
       </div>
-      {showModal && <Modal onClose={handleModal}/>}
+      {showModal && (
+        <Modal onClose={handleModal}>
+          <div className="item-card__modal">
+            <div className="img-wrap">
+              <img
+                className={"img-fluid"}
+                src={`/assets/${data.thumbnail}`}
+                alt={data.title}
+              />
+            </div>
+            <div className="meta">
+              <h3>{data.title}</h3>
+              <div className={"pricing"}>
+                <span>Rs {data.discountedPrice}</span>
+                <small>
+                  <strike>Rs {data.price}</strike>
+                </small>
+              </div>
+              <p>{data.description}</p>
+              {counter <= 0 ? (
+                <button
+                  className={"cart-add cart-add__modal"}
+                  onClick={increaseByOne}
+                >
+                  <span>Add to cart</span>
+                  <img src={AddToCartIcon} alt="Cart Icon" />
+                </button>
+              ) : (
+                <div className={"cart-addon cart-add__modal"}>
+                  <button onClick={decreaseByOne}>
+                    <span>-</span>
+                  </button>
+                  <span className={"counter"}>{counter}</span>
+                  <button onClick={increaseByOne}>
+                    <span>+</span>
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </Modal>
+      )}
     </Fragment>
   );
 };
