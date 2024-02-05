@@ -1,13 +1,21 @@
 import { Fragment, useState } from "react";
 import Modal from "../UI/Modal";
 import CartItems from "./CartItems";
+import OrderSuccessModal from "../UI/OrderSuccess";
 
 const Cart = ({ count, items, onHandleEvent }) => {
   const [showModal, setShowModal] = useState(false);
+  const [orderModal, setOrderModal] = useState(false);
 
   const handleModal = () => {
     setShowModal((previousState) => !previousState);
   };
+
+  const handleOrderModal = () => {
+    setShowModal(false);
+    setOrderModal((previous) => !previous);
+  };
+
   return (
     <Fragment>
       <button onClick={handleModal}>
@@ -57,18 +65,21 @@ const Cart = ({ count, items, onHandleEvent }) => {
                 <div className="totalAmount">
                   <h4>Total Amount: </h4>
                   <h4>
-                    {items.reduce((acc, curr) => {
-                      return (acc = curr.discountedPrice + curr.quantity);
+                    {items.reduce((previous, current) => {
+                      return (
+                        previous + current.discountedPrice + current.quantity
+                      );
                     }, 0)}
                     <span style={{ marginLeft: "4px" }}>INR</span>
                   </h4>
                 </div>
-                <button>Order now!</button>
+                <button onClick={handleOrderModal}>Order Now</button>
               </div>
             )}
           </div>
         </Modal>
       )}
+      {orderModal && <OrderSuccessModal onClose={handleOrderModal} />}
     </Fragment>
   );
 };
