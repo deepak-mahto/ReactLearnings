@@ -2,12 +2,13 @@ import AddToCartIcon from "../../../assets/icons/add_cart.svg";
 import { Fragment, useState } from "react";
 import Modal from "../UI/Modal";
 
-const ListItem = ({ data, updateItemTitle }) => {
+const ListItem = ({ data, updateItemTitle, onAdd,  onRemove }) => {
   const [counter, setCounter] = useState(0);
   const [showModal, setShowModal] = useState(false);
 
   const increaseByOne = (event) => {
     event.stopPropagation();
+    onAdd(data.id);
     setCounter(counter + 1);
   };
 
@@ -15,9 +16,11 @@ const ListItem = ({ data, updateItemTitle }) => {
     event.stopPropagation();
     if (counter <= 0) {
       return;
-    } else {
-      setCounter(counter - 1);
+    } 
+    if (counter === 1) {
+      onRemove();
     }
+      setCounter(counter - 1);
   };
 
   const handleModal = () => {

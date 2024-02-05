@@ -3,9 +3,10 @@ import ListItem from "./Listitems/ListItem";
 import axios from "axios";
 import Loader from "./UI/Loader";
 
-const Products = () => {
+const Products = ({ onAddItem, onRemoveItem }) => {
   const [items, setItems] = useState([]);
   const [loader, setLoader] = useState(true);
+  const [presentItems, setPresentItems] = useState([]);
 
   useEffect(() => {
     async function fetchItems() {
@@ -52,6 +53,25 @@ const Products = () => {
     }
   };
 
+  const handleAddItem = (id) => {
+    // console.log(id);
+    if (presentItems.indexOf(id) > -1) {
+      return;
+    }
+    onAddItem();
+  };
+
+  const handleRemoveItem = (id) => {
+    let index = presentItems.indexOf(id);
+    if (index > -1) {
+      let items = [...presentItems];
+      items.splice(index, 1);
+      setPresentItems(...items);
+      onRemoveItem();
+    }
+    // console.log(id);
+  };
+
   return (
     <>
       <div className={"product-list"}>
@@ -59,6 +79,8 @@ const Products = () => {
           {items.map((item) => {
             return (
               <ListItem
+                onAdd={handleAddItem}
+                onRemove={handleRemoveItem}
                 key={item.id}
                 data={item}
                 updateItemTitle={updateItemTitle}
