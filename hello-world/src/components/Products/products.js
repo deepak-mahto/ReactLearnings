@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import ListItem from "./ListItems/ListItem";
+import ListItem from "./Listitems/ListItem";
 import axios from "axios";
+import Loader from "./UI/Loader";
 
 const Products = () => {
   const [items, setItems] = useState([]);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     async function fetchItems() {
@@ -18,10 +20,14 @@ const Products = () => {
             id: index,
           };
         });
+        // setLoader(false);
         setItems(transformData);
       } catch (error) {
-        console.log(error);
+        setLoader(false);
+        // console.log(error);
         alert("Some error occurred!");
+      } finally {
+        setLoader(false);
       }
     }
     fetchItems();
@@ -47,19 +53,22 @@ const Products = () => {
   };
 
   return (
-    <div className={"product-list"}>
-      <div className={"product-list--wrapper"}>
-        {items.map((item) => {
-          return (
-            <ListItem
-              key={item.id}
-              data={item}
-              updateItemTitle={updateItemTitle}
-            />
-          );
-        })}
+    <>
+      <div className={"product-list"}>
+        <div className={"product-list--wrapper"}>
+          {items.map((item) => {
+            return (
+              <ListItem
+                key={item.id}
+                data={item}
+                updateItemTitle={updateItemTitle}
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
+      {loader && <Loader />}
+    </>
   );
 };
 
