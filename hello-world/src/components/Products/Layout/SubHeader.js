@@ -1,6 +1,6 @@
 const SubHeader = () => {
   return (
-    <div class="subheader-container">
+    <div className="subheader-container">
       <ul>
         <li>
           <a href="/">Home</a>
