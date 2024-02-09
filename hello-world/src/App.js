@@ -1,6 +1,6 @@
 import Products from "./components/Products/products";
-import Header from "./components/Products/Layout/Header";
-import SubHeader from "./components/Products/Layout/SubHeader";
+import Header from "./components/Layout/Header";
+import SubHeader from "./components/Layout/SubHeader";
 import { useState } from "react";
 
 const App = () => {

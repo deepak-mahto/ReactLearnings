@@ -1,5 +1,5 @@
 import Modal from "./Modal";
-import OrderSuccessImage from "../../../assets/icons/order_success.svg";
+import OrderSuccessImage from "../../assets/icons/order_success.svg";
 
 const OrderSuccessModal = ({ onClose }) => {
   return (

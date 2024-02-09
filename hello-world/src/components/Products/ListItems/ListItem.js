@@ -1,6 +1,6 @@
 import AddToCartIcon from "../../../assets/icons/add_cart.svg";
 import { Fragment, useState } from "react";
-import Modal from "../UI/Modal";
+import Modal from "../../UI/Modal";
 
 const ListItem = ({ data, updateItemTitle, onAdd, onRemove }) => {
   // const [counter, setCounter] = useState(0);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ListItem from "./Listitems/ListItem";
 import axios from "axios";
-import Loader from "./UI/Loader";
+import Loader from "../UI/Loader";
 
 const Products = ({ onAddItem, onRemoveItem, eventState }) => {
   const [items, setItems] = useState([]);
