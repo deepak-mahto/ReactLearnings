@@ -1,3 +1,3 @@
 # React 
 
-React hands-on learning repository.
+Hands-on react learning repository.
