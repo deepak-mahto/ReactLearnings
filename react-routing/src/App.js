@@ -1,8 +1,15 @@
+import { Fragment } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Products from "./components/Products";
 const App = () => {
   return (
-    <di>
-      <h1>React Routing</h1>
-    </di>
+    <Fragment>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/products" element={<Products />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </Fragment>
   );
 };
 
