@@ -14,8 +14,6 @@ body {
 .header {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .search {
@@ -38,6 +36,13 @@ body {
 	outline: none;
 }
 
+.searchComponent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .notes-list {
 	display: grid;
 	grid-gap: 1rem;
@@ -56,7 +61,9 @@ body {
 }
 
 textarea {
-	border: none;
+	border: 0.5px solid gray;
+    padding: 0.5rem;
+    border-radius: 10px;
 	resize: none;
 	background-color: white;
 }
@@ -66,8 +73,9 @@ textarea:focus {
 }
 
 .note {
-	background-color: #fef68a;
-	border-radius: 10px;
+    border: none;
+	background-color: white;
+	border-radius: none;
 	padding: 1rem;
 	min-height: 170px;
 	display: flex;

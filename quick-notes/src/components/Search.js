@@ -4,6 +4,7 @@ import { MdSearch } from "react-icons/md";
 const Search = ({ handleSearchNote }) => {
   return (
     <Fragment>
+      <div className="searchComponent">
       <div className="search">
         <MdSearch className="search-icons" size="1.3em" />
         <input
@@ -13,6 +14,7 @@ const Search = ({ handleSearchNote }) => {
           type="text"
           placeholder="Type to Search"
         />
+      </div>
       </div>
     </Fragment>
   );
