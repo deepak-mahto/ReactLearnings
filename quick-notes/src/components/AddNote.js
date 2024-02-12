@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 
 const AddNote = ({ handleAddNote }) => {
   const [noteText, setNoteText] = useState("");
-  const characterLimit = 500;
+  const characterLimit = 200;
 
   const handleChange = (event) => {
     if (characterLimit - event.target.value.length >= 0) {
