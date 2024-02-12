@@ -1,12 +1,12 @@
 import { Fragment } from "react";
-import { NavLink } from "react-router-dom";
+import Nevigation from "./Nevigation";
 
 const Home = () => {
   return (
     <Fragment>
       <div>
-        <h1>Default message</h1>
-        <NavLink to={"/product"}>Product</NavLink>
+        <Nevigation />
+        <h1>Home Page.</h1>
       </div>
     </Fragment>
   );

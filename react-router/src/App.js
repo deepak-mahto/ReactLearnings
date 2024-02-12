@@ -1,17 +1,17 @@
 import { Fragment } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Product from "./components/Product";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
-import ProductItem from "./components/ProductItem";
+import About from "./components/About";
+import Contact from "./components/Contact";
 
 const App = () => {
   return (
     <Fragment>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/product/1" element={<ProductItem />} />
+          <Route path="/" Component={Home} />
+          <Route path="/about" Component={About} />
+          <Route path="/contact" Component={Contact} />
         </Routes>
       </BrowserRouter>
     </Fragment>
