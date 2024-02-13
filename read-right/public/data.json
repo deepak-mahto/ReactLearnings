@@ -1,0 +1,92 @@
+{
+    "books": [
+        {
+            "id": "1",
+            "name": "Rich Dad Poor Dad",
+            "image": "https://literatureglobe.com/wp-content/uploads/2020/10/Rich-Dad-Poor-Dad-Front-min-e1601808025506.jpg",
+            "category": "business",
+            "oldPrice": 700,
+            "newPrice": 560,
+            "discount": 20,
+            "rating": 4.1,
+            "isInStock": true
+        },
+        {
+            "id": "2",
+            "name": "The 5 AM Club",
+            "image": "https://5.imimg.com/data5/XE/DD/AO/SELLER-19351533/the-5-am-club-own-your-morning-elevate-your-life-robin-sharma-250x250.jpg",
+            "category": "business",
+            "oldPrice": 600,
+            "newPrice": 402,
+            "discount": 33,
+            "rating": 4.5,
+            "isInStock": true
+        },
+        {
+            "id": "3",
+            "name": "Why I am An Atheist",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/41zsMB3h+rL._SY344_BO1,204,203,200_.jpg",
+            "category": "motivation",
+            "oldPrice": 350,
+            "newPrice": 297.5,
+            "discount": 15,
+            "rating": 1.8,
+            "isInStock": false
+        },
+        {
+            "id": "4",
+            "name": "Subtle Art of Not...",
+            "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1465761302i/28257707._UY400_SS400_.jpg",
+            "category": "motivation",
+            "oldPrice": 800,
+            "newPrice": 400,
+            "discount": 50,
+            "rating": 4.1,
+            "isInStock": true
+        },
+        {
+            "id": "5",
+            "name": "Atomic Habits",
+            "image": "https://m.media-amazon.com/images/I/81Ls+SBCLiL._AC_UF1000,1000_QL80_.jpg",
+            "category": "Self-development",
+            "oldPrice": 1000,
+            "newPrice": 600,
+            "discount": 40,
+            "rating": 4.2,
+            "isInStock": true
+        },
+        {
+            "id": "6",
+            "name": "How to win friends and influence people",
+            "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRitSgR4ft1YjYWHncBjUNuKlsC7h9X6Rude3N-JveEbuSr3BVz",
+            "category": "Self-development",
+            "oldPrice": 1200,
+            "newPrice": 816,
+            "discount": 32,
+            "rating": 2.2,
+            "isInStock": true
+        },
+        {
+            "id": "7",
+            "name": "The Great Gatsby",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/7/7a/The_Great_Gatsby_Cover_1925_Retouched.jpg",
+            "category": "novel",
+            "oldPrice": 700,
+            "newPrice": 630,
+            "discount": 10,
+            "rating": 3.6,
+            "isInStock": true
+        },
+        {
+            "id": "8",
+            "name": "The Lord of the Rings",
+            "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRDQA4AEHBp5DKrQS5jAAAkLDSGXnTfFfD1hvyLL1BI6dztwzib",
+            "category": "English Literature",
+            "oldPrice": 1000,
+            "newPrice": 350,
+            "discount": 65,
+            "rating": 2.5,
+            "isInStock": true
+        }
+    ]
+}
