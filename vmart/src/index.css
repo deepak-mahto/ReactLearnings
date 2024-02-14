@@ -1,0 +1,9 @@
+@import url("https://uilight.netlify.app/main.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+@import "./style/Filter/filter.css";
+@import "./style/FinalPrice/final-price.css";
+@import "./style/Navbar/navbar.css";
+@import "./style/ProductCard/product-card.css";
+@import "./style/Pages/Products/products.css";
+@import "./style/Pages/Cart/cart.css";

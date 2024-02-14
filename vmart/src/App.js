@@ -1,8 +1,18 @@
+import { Fragment } from "react";
+import { Products } from "./pages/Products/Products";
+import { Cart } from "./pages/Cart/Cart";
+import { Routes, Route } from "react-router-dom";
+
 const App = () => {
   return (
-    <>
-      <h1>vmart</h1>
-    </>
+    <Fragment>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Products />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </div>
+    </Fragment>
   );
 };
 
