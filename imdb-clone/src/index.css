@@ -1,0 +1,20 @@
+@import "./styles/components/card.css";
+@import "./styles/components/header.css";
+@import "./styles/components/movieList.css";
+@import "./styles/pages/home.css";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body, #root, .App {
+    min-height: 100%;
+}
+
+.App {
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+}
+
