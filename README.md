@@ -1,6 +1,6 @@
 # React 
 
-Hands-on react learning repository.
+## Hands-on react learning repository.
 
 ### contacts : https://cntacts.netlify.app and https://cntcts.netlify.app
 ### crypto-fetcher: https://cryptofetc.netlify.app
